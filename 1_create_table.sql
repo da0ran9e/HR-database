@@ -90,13 +90,21 @@ CREATE TABLE countries (
     country_name VARCHAR(50),
     region_id INT
 );
+--Write a SQL statement to create a table job_history including columns 
+--employee_id-- 
+--start_date--
+--end_date--
+--job_id--
+--department_id--
+--make sure that, the employee_id column does not contain any duplicate value at the time of insertion
+--the foreign key column job_id contain only those values which are exists in the jobs table.
 CREATE TABLE job_history (
-    employee_id INT NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE NOT NULL,
-    job_id CHAR(10) NOT NULL,
-    department_id INT NOT NULL,
-    PRIMARY KEY (employee_id, start_date),
+    employee_id INT PRIMARY KEY,
+    start_date DATE,
+    end_date DATE,
+    job_id CHAR(10),
+    department_id INT,
+    UNIQUE(employee_id),
     FOREIGN KEY (job_id) REFERENCES jobs(job_id)
 );
 CREATE TABLE employees (
