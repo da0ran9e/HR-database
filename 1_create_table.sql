@@ -1,9 +1,18 @@
---Write a SQL statement to create a simple table countries including columns country_id,country_name and region_id.--
+--Write a SQL statement to create a simple table countries including columns 
+--country_id--
+--country_name
+--region_id--
 CREATE TABLE countries (
     country_id CHAR(2) PRIMARY KEY,
     country_name VARCHAR(50) NOT NULL,
     region_id INT
 );
+--Write a SQL statement to create a table named jobs including columns 
+--job_id--
+--job_title--
+--min_salary--
+--max_salary--
+-- and check whether the max_salary amount exceeding the upper limit 25000.
 CREATE TABLE jobs (
     job_id CHAR(10) PRIMARY KEY,
     job_title VARCHAR(35) NOT NULL,
