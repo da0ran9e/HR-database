@@ -80,6 +80,11 @@ CREATE TABLE countries (
     region_id INT,
     UNIQUE (country_id)
 );
+--Write a SQL statement to create a table countries including columns 
+--country_id-- 
+--country_name--
+--region_id--
+--make sure that the column country_id will be unique and store an auto incremented value.
 CREATE TABLE countries (
     country_id SERIAL PRIMARY KEY,
     country_name VARCHAR(50) NOT NULL,
