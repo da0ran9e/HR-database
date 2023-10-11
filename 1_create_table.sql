@@ -3,8 +3,8 @@
 --country_name
 --region_id--
 CREATE TABLE countries (
-    country_id CHAR(2) PRIMARY KEY,
-    country_name VARCHAR(50) NOT NULL,
+    country_id CHAR(2),
+    country_name VARCHAR(50),
     region_id INT
 );
 --Write a SQL statement to create a table named jobs including columns 
@@ -13,8 +13,8 @@ CREATE TABLE countries (
 --min_salary--
 --max_salary-- check whether the max_salary amount exceeding the upper limit 25000.
 CREATE TABLE jobs (
-    job_id CHAR(10) PRIMARY KEY,
-    job_title VARCHAR(35) NOT NULL,
+    job_id CHAR(10),
+    job_title VARCHAR(35),
     min_salary NUMERIC(10, 2) CHECK (min_salary >= 0),
     max_salary NUMERIC(10, 2) CHECK (max_salary >= 0 AND max_salary <= 25000)
 );
@@ -24,8 +24,8 @@ CREATE TABLE jobs (
 --region_id
 --make sure that no countries except Italy, India and China will be entered in the table.
 CREATE TABLE countries (
-    country_id CHAR(2) PRIMARY KEY,
-    country_name VARCHAR(50) NOT NULL,
+    country_id CHAR(2),
+    country_name VARCHAR(50),
     region_id INT,
     CHECK (country_name IN ('Italy', 'India', 'China'))
 );
@@ -41,12 +41,15 @@ CREATE TABLE job_history (
     end_date DATE NOT NULL,
     job_id CHAR(10) NOT NULL,
     department_id INT NOT NULL,
-    PRIMARY KEY (employee_id, start_date),
-    FOREIGN KEY (job_id) REFERENCES jobs(job_id)
 );
+--Write a SQL statement to create a table named countries including columns 
+--country_id
+--country_name
+--region_id 
+--make sure that no duplicate data against column country_id will be allowed at the time of insertion.
 CREATE TABLE countries (
-    country_id CHAR(2) PRIMARY KEY,
-    country_name VARCHAR(50) NOT NULL,
+    country_id CHAR(2),
+    country_name VARCHAR(50),
     region_id INT,
     UNIQUE (country_id)
 );
