@@ -167,6 +167,16 @@ CREATE TABLE employees (
     FOREIGN KEY (department_id) REFERENCES departments(department_id),
     FOREIGN KEY (job_id) REFERENCES jobs(job_id)
 );
+--Write a SQL statement to create a table employees including columns 
+--employee_id--
+--first_name--
+--last_name--
+--job_id--
+--salary--
+--make sure that, the employee_id column does not contain any duplicate value at the time of insertion
+--the foreign key column job_id, referenced by the column job_id of jobs table, can contain only those values which are exists in the jobs table. 
+--The specialty of the statement is that, The ON UPDATE CASCADE action allows you to perform cross-table update and ON DELETE RESTRICT action reject the deletion. 
+--The default action is ON DELETE RESTRICT.
 CREATE TABLE employees (
     employee_id INT NOT NULL,
     first_name VARCHAR(50),
@@ -176,6 +186,15 @@ CREATE TABLE employees (
     PRIMARY KEY (employee_id),
     FOREIGN KEY (job_id) REFERENCES jobs(JOB_ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
+--Write a SQL statement to create a table employees including columns
+--employee_id--
+--first_name--
+--last_name--
+--job_id--
+--salary--
+--make sure that, the employee_id column does not contain any duplicate value at the time of insertion,
+--the foreign key column job_id, referenced by the column job_id of jobs table, can contain only those values which are exists in the jobs table.
+--The specialty of the statement is that, The ON DELETE CASCADE that lets you allow to delete records in the employees(child) table that refer to a record in the jobs(parent) table when the record in the parent table is deleted and the ON UPDATE RESTRICT actions reject any updates
 CREATE TABLE employees (
     employee_id INT NOT NULL,
     first_name VARCHAR(50),
