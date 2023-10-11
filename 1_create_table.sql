@@ -102,11 +102,25 @@ CREATE TABLE job_history (
     employee_id INT PRIMARY KEY,
     start_date DATE,
     end_date DATE,
-    job_id CHAR(10),
+    job_id CHAR(10) NOT NULL,
     department_id INT,
     UNIQUE(employee_id),
     FOREIGN KEY (job_id) REFERENCES jobs(job_id)
 );
+--Write a SQL statement to create a table employees including columns 
+--employee_id--
+--first_name--
+--last_name--
+--email--
+--phone_number--
+--hire_date--
+--job_id--
+--salary--
+--commission--
+--manager_id--
+--department_id--
+--make sure that, the employee_id column does not contain any duplicate value at the time of insertion
+--the foreign key columns combined by department_id and manager_id columns contain only those unique combination values, which combinations are exists in the departments table.
 CREATE TABLE employees (
     employee_id INT NOT NULL,
     first_name VARCHAR(50),
@@ -122,6 +136,21 @@ CREATE TABLE employees (
     PRIMARY KEY (employee_id),
     FOREIGN KEY (department_id, manager_id) REFERENCES departments(department_id, manager_id)
 );
+--Write a SQL statement to create a table employees including columns --employee_id--
+--first_name--
+--last_name--
+--email--
+--phone_number--
+--hire_date--
+--job_id--
+--salary--
+--commission--
+--manager_id--
+--department_id--
+--make sure that, the employee_id column does not contain any duplicate value at the time of insertion
+--the foreign key column department_id, reference by the column department_id of departments table,
+--can contain only those values which are exists in the departments table 
+--another foreign key column job_id, referenced by the column job_id of jobs table, can contain only those values which are exists in the jobs table.
 CREATE TABLE employees (
     employee_id INT NOT NULL,
     first_name VARCHAR(50),
