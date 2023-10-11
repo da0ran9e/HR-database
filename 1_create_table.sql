@@ -87,7 +87,7 @@ CREATE TABLE countries (
 --make sure that the column country_id will be unique and store an auto incremented value.
 CREATE TABLE countries (
     country_id SERIAL PRIMARY KEY,
-    country_name VARCHAR(50) NOT NULL,
+    country_name VARCHAR(50),
     region_id INT
 );
 CREATE TABLE job_history (
