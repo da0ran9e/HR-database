@@ -11,8 +11,7 @@ CREATE TABLE countries (
 --job_id--
 --job_title--
 --min_salary--
---max_salary--
--- and check whether the max_salary amount exceeding the upper limit 25000.
+--max_salary-- check whether the max_salary amount exceeding the upper limit 25000.
 CREATE TABLE jobs (
     job_id CHAR(10) PRIMARY KEY,
     job_title VARCHAR(35) NOT NULL,
