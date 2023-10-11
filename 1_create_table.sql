@@ -53,8 +53,18 @@ CREATE TABLE countries (
     region_id INT,
     UNIQUE (country_id)
 );
+--Write a SQL statement to create a table named jobs including columns 
+--job_id--
+--job_title--
+--min_salary--
+--max_salary--
+--make sure that, the default value for 
+--job_title is blank--
+--min_salary is 8000--
+--max_salary is NULL--
+--will be entered automatically at the time of insertion if no value assigned for the specified columns.
 CREATE TABLE jobs (
-    job_id CHAR(10) PRIMARY KEY,
+    job_id CHAR(10),
     job_title VARCHAR(35) DEFAULT '',
     min_salary DECIMAL(6, 0) DEFAULT 8000,
     max_salary DECIMAL(6, 0) DEFAULT NULL CHECK (max_salary <= 25000)
