@@ -18,6 +18,11 @@ CREATE TABLE jobs (
     min_salary NUMERIC(10, 2) CHECK (min_salary >= 0),
     max_salary NUMERIC(10, 2) CHECK (max_salary >= 0 AND max_salary <= 25000)
 );
+--Write a SQL statement to create a table named countries including columns
+--country_id
+--country_name
+--region_id
+--make sure that no countries except Italy, India and China will be entered in the table.
 CREATE TABLE countries (
     country_id CHAR(2) PRIMARY KEY,
     country_name VARCHAR(50) NOT NULL,
