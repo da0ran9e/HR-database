@@ -29,6 +29,12 @@ CREATE TABLE countries (
     region_id INT,
     CHECK (country_name IN ('Italy', 'India', 'China'))
 );
+--Write a SQL statement to create a table named job_history including columns 
+--employee_id
+--start_date
+--end_date
+--job_id
+--department_id
 CREATE TABLE job_history (
     employee_id INT NOT NULL,
     start_date DATE NOT NULL,
