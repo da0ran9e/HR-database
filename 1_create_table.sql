@@ -69,9 +69,14 @@ CREATE TABLE jobs (
     min_salary DECIMAL(6, 0) DEFAULT 8000,
     max_salary DECIMAL(6, 0) DEFAULT NULL CHECK (max_salary <= 25000)
 );
+--Write a SQL statement to create a table named countries including columns 
+--country_id--
+--country_name--
+--region_id--
+--make sure that the country_id column will be a key field which will not contain any duplicate data at the time of insertion.
 CREATE TABLE countries (
     country_id CHAR(2) PRIMARY KEY,
-    country_name VARCHAR(50) NOT NULL,
+    country_name VARCHAR(50),
     region_id INT,
     UNIQUE (country_id)
 );
