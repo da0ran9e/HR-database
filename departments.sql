@@ -1,6 +1,6 @@
 CREATE TABLE departments (
-    DEPARTMENT_ID DECIMAL(4, 0) PRIMARY KEY,
-    DEPARTMENT_NAME VARCHAR(30) NOT NULL,
-    MANAGER_ID DECIMAL(6, 0),
-    LOCATION_ID DECIMAL(4, 0)
+    department_id DECIMAL(4, 0) PRIMARY KEY,
+    department_name VARCHAR(30) NOT NULL,
+    manager_id DECIMAL(6, 0),
+    location_id DECIMAL(4, 0)
 );
