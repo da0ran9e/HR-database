@@ -2,20 +2,20 @@
 INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('VI', 'Vietnam', 3);
 
 -- 2. Insert one row into the table countries against the columns country_id and country_name
-INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME) VALUES ('XY', 'New Country');
+INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME) VALUES ('VI', 'Vietnam');
 
 -- 3. Create a duplicate of the countries table named country_new with all structure and data
 CREATE TABLE country_new AS SELECT * FROM countries;
 
 -- 4. Insert NULL values against the region_id column for a row in the countries table
-INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('ZZ', 'No Region', NULL);
+INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('VI', 'Vietnam', NULL);
 
 -- 5. Insert 3 rows using a single INSERT statement into the countries table
 INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID)
 VALUES
-    ('AA', 'Country A', 1001),
-    ('BB', 'Country B', 1002),
-    ('CC', 'Country C', 1003);
+    ('AA', 'Country A', 1),
+    ('BB', 'Country B', 2),
+    ('CC', 'Country C', 3);
 
 -- 6. Insert rows from the country_new table into the countries table
 INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID)
