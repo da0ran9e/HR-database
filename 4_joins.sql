@@ -39,34 +39,42 @@ WHERE hire_date > (
 -- 7. Find the employee ID, job title, and the number of days between ending date and starting date for all jobs in department with ID 90
 SELECT e.employee_id, j.job_title, DATEDIFF(end_date, start_date) AS days_between
 FROM job_history jh
-JOIN employees e ON jh.employee_id = e.employee_id
-JOIN jobs j ON jh.job_id = j.job_id
+JOIN employees e 
+ON jh.employee_id = e.employee_id
+JOIN jobs j 
+ON jh.job_id = j.job_id
 WHERE e.department_id = 90;
 
 -- 8. Display the department ID, department name, and the first name of their manager
 SELECT d.department_id, d.department_name, e.first_name AS manager_first_name
 FROM departments d
-LEFT JOIN employees e ON d.manager_id = e.employee_id;
+LEFT JOIN employees e 
+ON d.manager_id = e.employee_id;
 
 -- 9. Display the department name, manager name, and city
 SELECT d.department_name, CONCAT(m.first_name, ' ', m.last_name) AS manager_name, l.city
 FROM departments d
-LEFT JOIN employees m ON d.manager_id = m.employee_id
-LEFT JOIN locations l ON d.location_id = l.location_id;
+LEFT JOIN employees m 
+ON d.manager_id = m.employee_id
+LEFT JOIN locations l 
+ON d.location_id = l.location_id;
 
 -- 11. Display job title, employee (ID, name), and the difference between the salary of the employee and the minimum salary for the job
 SELECT j.job_title, e.employee_id, CONCAT(e.first_name, ' ', e.last_name) AS employee_name, (e.salary - j.min_salary) AS salary_difference
 FROM employees e
-JOIN jobs j ON e.job_id = j.job_id;
+JOIN jobs j 
+ON e.job_id = j.job_id;
 
 -- 12. Display the job history done by employees currently earning more than 10000 in salary
 SELECT jh.*
 FROM job_history jh
-JOIN employees e ON jh.employee_id = e.employee_id
+JOIN employees e 
+ON jh.employee_id = e.employee_id
 WHERE e.salary > 10000;
 
 -- 13. Display department (ID, name) and their manager with more than 15 years of experience, including name, hire date, and salary
 SELECT d.department_id, d.department_name, CONCAT(m.first_name, ' ', m.last_name) AS manager_name, m.hire_date, m.salary
 FROM departments d
-JOIN employees m ON d.manager_id = m.employee_id
-WHERE DATEDIFF(NOW(), m.hire_date) > 5475; -- 15 years (assuming 365 days per year)
+JOIN employees m 
+ON d.manager_id = m.employee_id
+WHERE DATEDIFF(NOW(), m.hire_date) > 5475; --(assuming 365*15 days)
