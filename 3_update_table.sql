@@ -1,14 +1,21 @@
 -- 1. change the email column of employees table with 'not available' for all employees.
-UPDATE employees SET email = 'not available';
+UPDATE employees 
+SET email = 'not available';
 
 -- 2. change the email and commission_pct column of employees table with 'not available' and 0.10 for all employees.
-UPDATE employees SET email = 'not available', commission_pct = 0.10;
+UPDATE employees 
+SET email = 'not available', commission_pct = 0.10;
 
--- 3. Change the email and commission_pct column of the employees table to 'not available' and 0.10 for those employees whose department_id is 110
-UPDATE employees SET email = 'not available', commission_pct = 0.10 WHERE department_id = 110;
+-- 3. change the email and commission_pct column of employees table with 'not available' and 0.10 for those employees whose department_id is 110.
+UPDATE employees 
+SET email = 'not available', commission_pct = 0.10 
+WHERE department_id = 110;
 
 -- 4. Change the email column of the employees table to 'not available' for those employees whose department_id is 80 and commission is less than 0.20%
-UPDATE employees SET email = 'not available' WHERE department_id = 80 AND commission_pct < 0.20;
+UPDATE employees 
+SET email = 'not available' 
+WHERE department_id = 80 
+AND commission_pct < 0.20;
 
 -- 5. Change the email column of the employees table to 'not available' for those employees who belong to the 'Accounting' department
 UPDATE employees e
