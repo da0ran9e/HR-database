@@ -11,7 +11,7 @@ UPDATE employees
 SET email = 'not available', commission_pct = 0.10 
 WHERE department_id = 110;
 
--- 4. Change the email column of the employees table to 'not available' for those employees whose department_id is 80 and commission is less than 0.20%
+-- 4. change the email column of employees table with 'not available' for those employees whose department_id is 80 and gets a commission is less than .20%
 UPDATE employees 
 SET email = 'not available' 
 WHERE department_id = 80 
