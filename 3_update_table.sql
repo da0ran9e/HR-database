@@ -44,7 +44,7 @@ SET salary = CASE
     ELSE salary
 END;
 
--- 9. Increase the minimum and maximum salary of 'PU_CLERK' by 2000 and increase salaries by 20% and commission percent by 0.10
+-- 9. increase the minimum and maximum salary of PU_CLERK by 2000 as well as the salary for those employees by 20% and commission percent by .10.
 UPDATE employees
 SET min_salary = min_salary + 2000,
     max_salary = max_salary + 2000,
