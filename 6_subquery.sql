@@ -1,12 +1,16 @@
 -- 1. Find the name (first_name, last_name) and salary of employees with a higher salary than the employee whose last_name is 'Bull'
 SELECT first_name, last_name, salary
 FROM employees
-WHERE salary > (SELECT salary FROM employees WHERE last_name = 'Bull');
+WHERE salary > (
+    SELECT salary FROM employees 
+    WHERE last_name = 'Bull');
 
 -- 2. Find the name (first_name, last_name) of employees who work in the IT department
 SELECT first_name, last_name
 FROM employees
-WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'IT');
+WHERE department_id = (
+    SELECT department_id FROM departments 
+    WHERE department_name = 'IT');
 
 -- 3. Find the name (first_name, last_name) of employees who have a manager and work in a USA-based department
 SELECT e.first_name, e.last_name
