@@ -15,50 +15,63 @@ WHERE department_id = (
 -- 3. Find the name (first_name, last_name) of employees who have a manager and work in a USA-based department
 SELECT e.first_name, e.last_name
 FROM employees e
-JOIN departments d ON e.department_id = d.department_id
+JOIN departments d 
+ON e.department_id = d.department_id
 WHERE e.manager_id IS NOT NULL AND d.country_id = 'US';
 
 -- 4. Find the name (first_name, last_name) of the employees who are managers
 SELECT first_name, last_name
 FROM employees
-WHERE employee_id IN (SELECT DISTINCT manager_id FROM employees);
+WHERE employee_id IN (
+    SELECT DISTINCT manager_id FROM employees);
 
 -- 5. Find the name (first_name, last_name) and salary of employees whose salary is greater than the average salary
 SELECT first_name, last_name, salary
 FROM employees
-WHERE salary > (SELECT AVG(salary) FROM employees);
+WHERE salary > (
+    SELECT AVG(salary) FROM employees);
 
 -- 6. Find the name (first_name, last_name) and salary of employees whose salary is equal to the minimum salary for their job grade
 SELECT e.first_name, e.last_name, e.salary
 FROM employees e
 JOIN jobs j ON e.job_id = j.job_id
-WHERE e.salary = (SELECT MIN(salary) FROM employees WHERE job_id = j.job_id);
+WHERE e.salary = (
+    SELECT MIN(salary) FROM employees 
+    WHERE job_id = j.job_id);
 
 -- 7. Find the name (first_name, last_name) and salary of employees who earn more than the average salary and work in any of the IT departments
 SELECT e.first_name, e.last_name, e.salary
 FROM employees e
 JOIN departments d ON e.department_id = d.department_id
-WHERE e.salary > (SELECT AVG(salary) FROM employees) AND d.department_name = 'IT';
+WHERE e.salary > (
+    SELECT AVG(salary) FROM employees) 
+    AND d.department_name = 'IT';
 
 -- 8. Find the name (first_name, last_name) and salary of employees who earn more than Mr. Bell
 SELECT first_name, last_name, salary
 FROM employees
-WHERE salary > (SELECT salary FROM employees WHERE last_name = 'Bell');
+WHERE salary > (
+    SELECT salary FROM employees 
+    WHERE last_name = 'Bell');
 
 -- 9. Find the name (first_name, last_name) and salary of employees who earn the same salary as the minimum salary for all departments
 SELECT e.first_name, e.last_name, e.salary
 FROM employees e
-WHERE e.salary = (SELECT MIN(salary) FROM employees);
+WHERE e.salary = (
+    SELECT MIN(salary) FROM employees);
 
 -- 10. Find the name (first_name, last_name) and salary of employees whose salary is greater than the average salary of all departments
 SELECT e.first_name, e.last_name, e.salary
 FROM employees e
-WHERE e.salary > (SELECT AVG(salary) FROM employees);
+WHERE e.salary > (
+    SELECT AVG(salary) FROM employees);
 
 -- 11. Find the name (first_name, last_name) and salary of employees who earn a salary higher than the salary of all Shipping Clerks (JOB_ID = 'SH_CLERK'). Sort the results by salary from lowest to highest
 SELECT first_name, last_name, salary
 FROM employees
-WHERE salary > ALL (SELECT salary FROM employees WHERE job_id = 'SH_CLERK')
+WHERE salary > ALL (
+    SELECT salary FROM employees 
+    WHERE job_id = 'SH_CLERK')
 ORDER BY salary;
 
 -- 12. Find the name (first_name, last_name) of employees who are not supervisors
