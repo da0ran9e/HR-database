@@ -1,29 +1,40 @@
 -- 1. Find the addresses (location_id, street_address, city, state_province, country_name) of all departments
 SELECT d.department_id, l.street_address, l.city, l.state_province, c.country_name
 FROM departments d
-JOIN locations l ON d.location_id = l.location_id
-JOIN countries c ON l.country_id = c.country_id;
+JOIN locations l 
+ON d.location_id = l.location_id
+JOIN countries c 
+ON l.country_id = c.country_id;
 
 -- 2. Find the name (first_name, last_name), department ID, and department name of all employees
 SELECT e.first_name, e.last_name, e.department_id, d.department_name
 FROM employees e
-JOIN departments d ON e.department_id = d.department_id;
+JOIN departments d 
+ON e.department_id = d.department_id;
 
 -- 3. Find the name (first_name, last_name), job, department ID, and department name of employees who work in London
 SELECT e.first_name, e.last_name, e.job_id, e.department_id, d.department_name
 FROM employees e
-JOIN departments d ON e.department_id = d.department_id
-WHERE e.location_id = (SELECT location_id FROM locations WHERE city = 'London');
+JOIN departments d 
+ON e.department_id = d.department_id
+WHERE e.location_id = (
+    SELECT location_id 
+    FROM locations 
+    WHERE city = 'London');
 
 -- 4. Find the employee ID, name (last_name) along with their manager (manager_id, last_name)
 SELECT e.employee_id, e.last_name, e.manager_id, m.last_name AS manager_last_name
 FROM employees e
-LEFT JOIN employees m ON e.manager_id = m.employee_id;
+LEFT JOIN employees m 
+ON e.manager_id = m.employee_id;
 
 -- 5. Find the name (first_name, last_name) and hire date of employees hired after 'Jones'
 SELECT first_name, last_name, hire_date
 FROM employees
-WHERE hire_date > (SELECT hire_date FROM employees WHERE last_name = 'Jones');
+WHERE hire_date > (
+    SELECT hire_date 
+    FROM employees 
+    WHERE last_name = 'Jones');
 
 -- 7. Find the employee ID, job title, and the number of days between ending date and starting date for all jobs in department with ID 90
 SELECT e.employee_id, j.job_title, DATEDIFF(end_date, start_date) AS days_between
