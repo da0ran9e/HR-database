@@ -77,17 +77,21 @@ ORDER BY salary;
 -- 12. Find the name (first_name, last_name) of employees who are not supervisors
 SELECT first_name, last_name
 FROM employees
-WHERE employee_id NOT IN (SELECT DISTINCT manager_id FROM employees);
+WHERE employee_id NOT IN (
+    SELECT DISTINCT manager_id FROM employees);
 
 -- 13. Display the employee ID, first name, last name, and department names of all employees
 SELECT e.employee_id, e.first_name, e.last_name, d.department_name
 FROM employees e
-JOIN departments d ON e.department_id = d.department_id;
+JOIN departments d 
+ON e.department_id = d.department_id;
 
 -- 14. Display the employee ID, first name, last name, and salary of employees whose salary is above average for their departments
 SELECT e.employee_id, e.first_name, e.last_name, e.salary
 FROM employees e
-WHERE e.salary > (SELECT AVG(salary) FROM employees WHERE department_id = e.department_id);
+WHERE e.salary > (
+    SELECT AVG(salary) FROM employees 
+    WHERE department_id = e.department_id);
 
 -- 15. Fetch even-numbered records from the employees table
 SELECT * FROM (
@@ -123,7 +127,8 @@ LIMIT 10;
 -- 19. List the department ID and name of all departments where no employee is working
 SELECT d.department_id, d.department_name
 FROM departments d
-WHERE d.department_id NOT IN (SELECT DISTINCT department_id FROM employees);
+WHERE d.department_id NOT IN (
+    SELECT DISTINCT department_id FROM employees);
 
 -- 20. Get 3 maximum salaries
 SELECT DISTINCT salary
