@@ -1,5 +1,5 @@
--- 1. Insert a record with your own values into the table countries
-INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('XX', 'Your Country', 9999);
+-- 1. Insert a record 
+INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('VI', 'Vietnam', 3);
 
 -- 2. Insert one row into the table countries against the columns country_id and country_name
 INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME) VALUES ('XY', 'New Country');
