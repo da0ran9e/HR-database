@@ -10,7 +10,7 @@ CREATE TABLE country_new AS SELECT * FROM countries;
 -- 4. Insert NULL values against the region_id column for a row in the countries table
 INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('VI', 'Vietnam', NULL);
 
--- 5. Insert 3 rows using a single INSERT statement into the countries table
+-- 5. Insert 3 rows using a single INSERT statement
 INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID)
 VALUES
     ('AA', 'Country A', 1),
@@ -19,14 +19,18 @@ VALUES
 
 -- 6. Insert rows from the country_new table into the countries table
 INSERT INTO countries (COUNTRY_ID, COUNTRY_NAME, REGION_ID)
-SELECT COUNTRY_ID, COUNTRY_NAME, REGION_ID
-FROM country_new;
+SELECT COUNTRY_ID, COUNTRY_NAME, REGION_ID FROM country_new;
 
 -- 7. Insert one row in the jobs table to ensure that no duplicate value will be entered in the job_id column
-INSERT INTO jobs (job_id, job_title, min_salary, max_salary) VALUES ('JOBX', 'Job Title X', 5000, 10000);
+INSERT INTO jobs (job_id, job_title, min_salary, max_salary)
+SELECT 'IT_PROG', 'Programmer', 50000, 90000
+WHERE NOT EXISTS (SELECT 1 FROM jobs WHERE job_id = 'IT_PROG');
 
 -- 10. Insert rows into the countries table where the country_id column will be unique and auto-incremented
-INSERT INTO countries (COUNTRY_NAME, REGION_ID) VALUES ('Country 1', 1001), ('Country 2', 1002), ('Country 3', 1003);
+INSERT INTO countries (COUNTRY_NAME, REGION_ID) 
+VALUES  ('Country 1', 101), 
+        ('Country 2', 102), 
+        ('Country 3', 103);
 
 -- 11. Insert records into the countries table to ensure that the country_id column will not contain any duplicate data, automatically incremented, and the column country_name will be filled with 'N/A' if no value is assigned
 INSERT INTO countries (COUNTRY_NAME) VALUES ('Country A'), (NULL), ('Country B');
