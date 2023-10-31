@@ -15,7 +15,7 @@ GROUP BY job_id;
 -- 4. Get the maximum salary of an employee working as a Programmer (job title)
 SELECT MAX(salary) AS max_programmer_salary
 FROM employees
-WHERE job_id = 'Programmer';
+WHERE job_title = 'Programmer';
 
 -- 5. Get the average salary and the number of employees working in department 90 (department ID)
 SELECT AVG(salary) AS avg_salary, COUNT(*) AS num_employees
