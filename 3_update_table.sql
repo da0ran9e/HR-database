@@ -20,10 +20,14 @@ AND commission_pct < 0.20;
 -- 5. Change the email column of the employees table to 'not available' for those employees who belong to the 'Accounting' department
 UPDATE employees e
 SET email = 'not available'
-WHERE e.department_id = (SELECT department_id FROM departments WHERE department_name = 'Accounting');
+WHERE e.department_id = (
+    SELECT department_id 
+    FROM departments 
+    WHERE department_name = 'Accounting');
 
 -- 6. Change the salary of an employee to 8000 if their ID is 105 and the existing salary is less than 5000
-UPDATE employees SET salary = 8000 WHERE employee_id = 105 AND salary < 5000;
+UPDATE employees SET salary = 8000 
+WHERE employee_id = 105 AND salary < 5000;
 
 -- 7. Change the job ID of an employee with ID 118 to 'SH_CLERK' if the employee belongs to department 30 and the existing job ID does not start with 'SH'
 UPDATE employees SET job_id = 'SH_CLERK'
@@ -31,7 +35,7 @@ WHERE employee_id = 118
 AND department_id = 30
 AND NOT (job_id LIKE 'SH%');
 
--- 8. Increase the salary of employees under departments 40, 90, and 110 by the specified percentages, keeping the rest unchanged
+-- 8. Increase the salary of employees by 25% for the department 40, 15% for department 90 and 10% for the department 110 and the rest of the departments will remain same.
 UPDATE employees
 SET salary = CASE
     WHEN department_id = 40 THEN salary * 1.25
