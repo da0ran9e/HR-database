@@ -33,16 +33,21 @@ VALUES  ('Country 1', 101),
         ('Country 3', 103);
 
 -- 11. Insert records into the countries table to ensure that the country_id column will not contain any duplicate data, automatically incremented, and the column country_name will be filled with 'N/A' if no value is assigned
-INSERT INTO countries (COUNTRY_NAME) VALUES ('Country A'), (NULL), ('Country B');
+INSERT INTO countries (COUNTRY_NAME) 
+VALUES  ('Country A'), 
+        (NULL), 
+        ('Country B');
 
 -- 12. Insert rows into the job_history table where the job_id column contains values that exist in the job_id column of the jobs table
 INSERT INTO job_history (employee_id, start_date, end_date, job_id, department_id)
-VALUES (1, '2023-01-01', '2023-12-31', 'JOBX', 1001);
+VALUES (1, '2023-01-01', '2023-12-31', 'IT_PROG', 1001);
 
 -- 13. Insert rows into the employees table where the combination of department_id and manager_id contains a unique value and the combined values must exist in the departments table
 INSERT INTO employees (employee_id, first_name, last_name, department_id, manager_id, salary)
-VALUES (1, 'John', 'Doe', 1001, 1001, 5000), (2, 'Jane', 'Smith', 1002, 1002, 6000);
+VALUES  (1, 'John', 'Doe', 1001, 1001, 5000), 
+        (2, 'Jane', 'Smith', 1002, 1002, 6000);
 
 -- 14. Insert rows into the employees table where the combination of department_id and job_id contains values that must exist in the departments and jobs tables
 INSERT INTO employees (employee_id, first_name, last_name, department_id, job_id, salary)
-VALUES (1, 'John', 'Doe', 1001, 'JOBX', 5000), (2, 'Jane', 'Smith', 1002, 'JOBY', 6000);
+VALUES  (1, 'John', 'Doe', 1001, 'IT_PROG', 5000), 
+        (2, 'Jane', 'Smith', 1002, 'JOBY', 6000);
